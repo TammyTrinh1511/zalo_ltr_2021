@@ -38,6 +38,7 @@ file_name = os.path.split(args.file)[1]
 
 target_length = args.max_len - tokenizer.num_special_tokens_to_add(pair=False)
 
+print("go line 41: target_length")
 
 def encode_one_line(text: str):
     if args.column is not None:
@@ -71,9 +72,12 @@ def encode_one_line(text: str):
         blocks.append(curr_block)
     return blocks
 
+print("go line 75: encode_one_line")
 
 with open(args.file, 'r') as corpus_file:
     lines = corpus_file.readlines()
+
+print("go line 80: corpus_file")
 
 with open(os.path.join(args.save_to, file_name + '.json'), 'w') as tokenized_file:
     with Pool() as p:
@@ -85,3 +89,6 @@ with open(os.path.join(args.save_to, file_name + '.json'), 'w') as tokenized_fil
         for blocks in all_blocks:
             for block in blocks:
                 tokenized_file.write(json.dumps({'text': block}) + '\n')
+
+
+print("go line 94: tokenized_file | finished")
