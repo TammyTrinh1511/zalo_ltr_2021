@@ -9,7 +9,7 @@ from utils import bm25_tokenizer, calculate_f2
 # from config import Config
 
 class Config:
-    data_path = "../input/zac2021-ltr-data"
+    data_path = "/kaggle/input/legal-text-retrieval/zac2021-ltr-data"
     save_bm25 = "saved_model"
     top_k_bm25 = 2
     bm25_k1 = 0.4
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     # load document to save running time, 
     # must run 1 time if we change pre-process step
-    parser.add_argument("--data_path", default="../input/zac2021-ltr-data", type=str)
+    parser.add_argument("--data_path", default="/kaggle/input/legal-text-retrieval/zac2021-ltr-data", type=str)
     parser.add_argument("--load_docs", action="store_false")
     parser.add_argument("--num_eval", default=500, type=str)
     args = parser.parse_args()
