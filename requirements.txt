@@ -6,3 +6,5 @@ sentence-transformers
 underthesea==1.3.3
 rank_bm25
 pandas
+datasets
+huggingface-hub
