@@ -44,9 +44,10 @@ if __name__ == '__main__':
             save_dict = {}
             save_dict["question"] = question
             concat_id = article["law_id"] + "_" + article["article_id"]
-            save_dict["document"] = doc_data[concat_id]["title"] + " " + doc_data[concat_id]["text"]
-            save_dict["relevant"] = 1
-            save_pairs.append(save_dict)
+            if (concat_id in doc_data.keys()):
+                save_dict["document"] = doc_data[concat_id]["title"] + " " + doc_data[concat_id]["text"]
+                save_dict["relevant"] = 1
+                save_pairs.append(save_dict)
 
         # Save negative pairs
         for idx, idx_pred in enumerate(predictions):
