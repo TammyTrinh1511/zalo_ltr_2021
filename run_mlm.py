@@ -31,8 +31,8 @@ from typing import Optional
 import datasets
 from datasets import load_dataset
 
-import mytransformers
-from mytransformers import (
+import transformers
+from transformers import (
     CONFIG_MAPPING,
     MODEL_FOR_MASKED_LM_MAPPING,
     AutoConfig,
@@ -44,12 +44,12 @@ from mytransformers import (
     TrainingArguments,
     set_seed,
 )
-from mytransformers.trainer_utils import get_last_checkpoint
-from mytransformers.utils import check_min_version
-from mytransformers.utils.versions import require_version
+from transformers.trainer_utils import get_last_checkpoint
+from transformers.utils import check_min_version
+from transformers.utils.versions import require_version
 
 
-# # Will error if the minimal version of myTransformers is not installed. Remove at your own risks.
+# # Will error if the minimal version of Transformers is not installed. Remove at your own risks.
 # check_min_version("4.13.0.dev0")
 
 require_version("datasets>=1.8.0", "To fix: pip install -r examples/pytorch/language-modeling/requirements.txt")
@@ -104,7 +104,7 @@ class ModelArguments:
     use_auth_token: bool = field(
         default=False,
         metadata={
-            "help": "Will use the token generated when running `mytransformers-cli login` (necessary to use this script "
+            "help": "Will use the token generated when running `transformers-cli login` (necessary to use this script "
             "with private models)."
         },
     )
@@ -197,7 +197,7 @@ class DataTrainingArguments:
 
 
 def main():
-    # See all possible arguments in src/mytransformers/training_args.py
+    # See all possible arguments in src/transformers/training_args.py
     # or by passing the --help flag to this script.
     # We now keep distinct sets of args, for a cleaner separation of concerns.
 
@@ -219,16 +219,16 @@ def main():
     log_level = training_args.get_process_log_level()
     logger.setLevel(log_level)
     datasets.utils.logging.set_verbosity(log_level)
-    mytransformers.utils.logging.set_verbosity(log_level)
-    mytransformers.utils.logging.enable_default_handler()
-    mytransformers.utils.logging.enable_explicit_format()
+    transformers.utils.logging.set_verbosity(log_level)
+    transformers.utils.logging.enable_default_handler()
+    transformers.utils.logging.enable_explicit_format()
 
     # Log on each process the small summary:
     logger.warning(
         f"Process rank: {training_args.local_rank}, device: {training_args.device}, n_gpu: {training_args.n_gpu}"
         + f"distributed training: {bool(training_args.local_rank != -1)}, 16-bits training: {training_args.fp16}"
     )
-    # Set the verbosity to info of the myTransformers logger (on main process only):
+    # Set the verbosity to info of the Transformers logger (on main process only):
     logger.info(f"Training/evaluation parameters {training_args}")
 
     # Detecting last checkpoint.
