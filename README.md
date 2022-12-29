@@ -14,7 +14,7 @@ Mã nguồn thực hành của Condenser
 
 * Nhóm tiến hành tham khảo mã nguồn từ bài toán Legal Text Retrieval từ cuộc thi Zalo AI 2021 của CuongNN218. https://github.com/CuongNN218/zalo_ltr_2021 
 
-* Do mã nguồn của CuongNN218 được chạy trên con máy có 4 GPU A1000. Nên nhóm e chỉ thực nghiệm, training lại trên bộ dữ liệu rất nhỏ (Chỉ 100 câu điều luật) 
+* Mã nguồn của CuongNN218 được chạy trên con máy có 4 GPU A1000
 
 
 
